@@ -6,9 +6,9 @@ int main()
     setlocale (LC_ALL, "portuguese");
 
     int vet[25] = {4, 0, 2, 0, 8, 9, 9, 8, 6, 4, 0, 2, 0, 6, 8, 4, 9, 0, 9, 8, 2, 6, 8, 8, 4};
-    int qnt_0 = 0, qnt_2 = 0, qnt_4 = 0, qnt_6 = 0, qnt_8 = 0, qnt_9 = 0;
+    int qnt_0 = 1, qnt_2 = 0, qnt_4 = 0, qnt_6 = 0, qnt_8 = 0, qnt_9 = 0;
     int correctPassword[6] = {6, 4, 3, 5, 8, 6};
-    int i, mov, pos=10, tentativas=0, deslizamentos=0;
+    int i, mov, pos_inicial=10, tentativas, deslizamentos=0, pos_final;
 
     printf("Olá, para abrir esse cofre você deverá adivinhar a senha!!\n");
 
@@ -18,85 +18,86 @@ int main()
     printf("\nSua senha será a quantidade de vezes que cada número aparece em cada movimento");
     printf("\nVocê só terá 3 tentativas!!");
 
-    printf("\nDigite a posição que deseja ir:");
-    scanf("%d", &mov);
-
     do
     {
+
+     printf("\nDigite a posição que deseja ir:");
+     scanf("%d", &mov);
 
      if(mov>24 || mov<0)
      {
          printf("\nPosição inválida\n");
-         exit(1);
+         exit(0);
 
      }
 
-     if( mov>10)
+     if( mov>pos_inicial)
      {
-        for( i = pos; i <= mov; i++)
+        for( pos_final = pos_inicial; pos_final <= mov; pos_final++)
         {
-            if(vet[i] == 0)
+            if(vet[pos_final] == 0)
             {
                 qnt_0++;
             }
-            else if(vet[i] == 2)
+            else if(vet[pos_final] == 2)
             {
                 qnt_2++;
             }
-            else if(vet[i] == 4)
+            else if(vet[pos_final] == 4)
             {
                 qnt_4++;
             }
-            else if(vet[i] == 6)
+            else if(vet[pos_final] == 6)
             {
                 qnt_6++;
             }
-             else if(vet[i] == 8)
+             else if(vet[pos_final] == 8)
             {
                 qnt_8++;
             }
-            else if(vet[i] == 9)
+            else if(vet[pos_final] == 9)
             {
                 qnt_9++;
             }
-
         }
     }
 
     else
     {
-        for( i = pos; i >= mov; i--)
+        for( pos_final = pos_inicial; pos_final >= mov; pos_final--)
         {
-            if(vet[i] == 0)
+            if(vet[pos_final] == 0)
             {
                 qnt_0++;
             }
-            else if(vet[i] == 2)
+            else if(vet[pos_final] == 2)
             {
                 qnt_2++;
             }
-            else if(vet[i] == 4)
+            else if(vet[pos_final] == 4)
             {
                 qnt_4++;
             }
-            else if(vet[i] == 6)
+            else if(vet[pos_final] == 6)
             {
                 qnt_6++;
             }
-             else if(vet[i] == 8)
+             else if(vet[pos_final] == 8)
             {
                 qnt_8++;
             }
-            else if(vet[i] == 9)
+            else if(vet[pos_final] == 9)
             {
                 qnt_9++;
             }
-
         }
     }
-    pos=mov;
-    tentativas++;
-    }while(tentativas<3);
+
+    deslizamentos++;
+
+    }while(deslizamentos<5);
+
+
 
 
     printf("%d, %d, %d, %d, %d, %d", qnt_0, qnt_2, qnt_4, qnt_6, qnt_8, qnt_9);

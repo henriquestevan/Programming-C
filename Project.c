@@ -21,16 +21,14 @@ int main()
     printf("\nVocê só terá 3 tentativas!!");
 
     for (deslizamentos = 0; deslizamentos < 5; deslizamentos++)
-    {
-
-     printf("\nDigite a posição que deseja ir:");
-     scanf("%d", &mov);
+    { 
+       printf("\nDigite a posição que deseja ir:");
+       scanf("%d", &mov);
 
      if(mov>24 || mov<0)
      {
          printf("\nPosição inválida\n");
          exit(0);
-
      }
 
      if( mov>pos_inicial)
@@ -96,14 +94,11 @@ int main()
             pos_inicial = pos_final - 1;
         }
         }
-
     }
 
     printf("Senha obtida:\n");
 
     printf("%d, %d, %d, %d, %d, %d", Q0, Q2, Q4, Q6, Q8, Q9);
 
-
     return 0;
-
 }

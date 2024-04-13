@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -21,14 +22,14 @@ int main()
     printf("\nVocê só terá 3 tentativas!!");
 
     for (deslizamentos = 0; deslizamentos < 5; deslizamentos++)
-    { 
+    {
        printf("\nDigite a posição que deseja ir:");
        scanf("%d", &mov);
 
      if(mov>24 || mov<0)
      {
          printf("\nPosição inválida\n");
-         exit(0);
+         exit(1);
      }
 
      if( mov>pos_inicial)

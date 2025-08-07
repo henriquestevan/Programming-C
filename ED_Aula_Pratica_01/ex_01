@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <locale.h>
 
+/*Elabore um programa em C que leia um número inteiro e
+determine quantos dígitos 7 possui esse número*/
+
 int main()
 {
 	setlocale(LC_ALL,"portuguese");
